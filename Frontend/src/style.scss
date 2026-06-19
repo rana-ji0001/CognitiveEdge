@@ -1,0 +1,16 @@
+@use "./style/button.scss";
+
+
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+html,
+body,
+#root{
+    width: 100%;
+    background-color: rgb(23, 22, 22);
+    color: whitesmoke;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,"Helvetica Neue", Arial, sans-serif;
+}
