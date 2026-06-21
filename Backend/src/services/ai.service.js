@@ -13,40 +13,77 @@ const interviewReportSchema = z.object({
         intention: z.string().describe("The intention of interviewer behind asking that question"),
         answer: z.string().describe("How to answer the question, what points to cover, what approach to take etc."),
     })).describe("Technical questions that can be asked in the interview with their intentions and how to answer them"),
-    behavioralQuestions: z.array(z.object({
+    behavioralQuestion: z.array(z.object({
         question: z.string().describe("The technical question can be asked in the Interview"),
         intention: z.string().describe("The intention of interviewer behind asking that question"),
         answer: z.string().describe("How to answer the question, what points to cover, what approach to take etc."),
     })).describe("Behaviorhal questions that can be asked in the interview with their intentions and how to answer them"),
-    skillGap: z.array(z.object({
-        skills: z.string().describe("The skills in which the candidate is lacking"),
+    skillGaps: z.array(z.object({
+        skill: z.string().describe("The skills in which the candidate is lacking"),
         severity: z.enum(["low", "medium", "high"]).describe("The severity of this skill gap, i.e. how important is this skill for the job and how much it can impact the candidate's chances"),
     })).describe("List of skill gaps in the candidate's profile along with their severity"),
     preparationPlan: z.array(z.object({
         day: z.number().describe("The day number in the preparation plan, starting from 1"),
         focus: z.string().describe("The main focus of this day in the preparation plan, e.g. data structures, system design, mock interviews etc."),
-        tasks: z.array(z.string()).describe("List of tasks to be done on this day to follow the preparation plan, e.g. read a specific book or article, solve a set of problems, watch a video etc.")
+        task: z.array(z.string()).describe("List of tasks to be done on this day to follow the preparation plan, e.g. read a specific book or article, solve a set of problems, watch a video etc.")
     })).describe("A day-wise preparation plan for the candidate to follow in order to prepare for the interview effectively"),
 
 })
 async function generateInterviewReport({ resume, selfDescription, jobDescription }) {
     const prompt = `Generate an interview report for a candidate with the following details:
+                    Generate ONLY valid JSON.
+
+                    Do not return markdown.
+                    Do not return explanations.
+                    Do not return headings.
+
+                    Return exactly this structure:
+
+                    {
+                    "matchScore": number,
+                    "technicalQuestion": [
+                        {
+                        "question": string,
+                        "intention": string,
+                        "answer": string
+                        }
+                    ],
+                    "behavioralQuestions": [
+                        {
+                        "question": string,
+                        "intention": string,
+                        "answer": string
+                        }
+                    ],
+                    "skillGap": [
+                        {
+                        "skills": string,
+                        "severity": "low|medium|high"
+                        }
+                    ],
+                    "preparationPlan": [
+                        {
+                        "day": number,
+                        "focus": string,
+                        "tasks": [string]
+                        }
+                    ]
+                    }
+
                         Resume:${resume}
                         selfDescription:${selfDescription}
                         jobDescription:${jobDescription}
 
     `
-
-
     const response = await ai.models.generateContent({
         model: "gemini-3-flash-preview",
         contents: prompt,
         config: {
             responseMimeType: "application/json",
-            responseSchema: zodToJsonSchema(interviewReportSchema),
+            responseSchema: zodToJsonSchema(interviewReportSchema)
         }
     })
-    console.log(response.text);
+    return JSON.parse(response.text)
 
 }
 
