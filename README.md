@@ -1,6 +1,7 @@
 # AI Interview Report Generator
 
-An AI-powered MERN stack application that helps job seekers prepare for interviews by analyzing their resume, job description, and self-introduction. The application generates a detailed interview report including match score, strengths, weaknesses, improvement suggestions, and likely interview questions using Google's Gemini AI.
+An AI-powered Full stack application that helps job seekers prepare for interviews by analyzing their resume, job description, and self-introduction. The application generates a detailed interview report including match score, strengths, weaknesses, improvement suggestions, and likely interview questions using Google's Gemini AI.
+IT CAN ALSO GENERATE THE AI RESUME FOR THAT SPECIFIC JOB
 
 ---
 
