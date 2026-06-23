@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import '../style/interview.scss'
 import { useInterview } from '../hooks/useInterview'
 import { useParams } from 'react-router'
+import { FaDownload } from "react-icons/fa";
 
 
 
@@ -46,15 +47,15 @@ const Roadmap = ({ plan }) => (
 
 const Interview = () => {
     const { interviewId } = useParams();
-    const { report, loading, getReportById } = useInterview();
+    const { report, loading, getReportById, getResumePdf } = useInterview();
     const [activeSection, setActiveSection] = useState('technical')
     useEffect(() => {
-        if(interviewId){
+        if (interviewId) {
             getReportById(interviewId);
         }
-    },[interviewId]);
-    if(loading || !report){
-        return(<main className='loading-screen'>
+    }, [interviewId]);
+    if (loading || !report) {
+        return (<main className='loading-screen'>
             <h1>Loading Your Interview Plan</h1>
         </main>)
     }
@@ -82,6 +83,7 @@ const Interview = () => {
                         <h1>Interview<br />Blueprint</h1>
                     </div>
 
+
                     <div className="report-nav__items">
                         {sections.map((section, index) => (
                             <button
@@ -95,6 +97,9 @@ const Interview = () => {
                             </button>
                         ))}
                     </div>
+                    <button className='button primary-button dwnbtn' onClick={()=>{getResumePdf(interviewId)}} >
+                        Get Your AI Generated Resume<FaDownload size={18} />
+                    </button>
                 </nav>
 
                 <section className="report-content" aria-live="polite">

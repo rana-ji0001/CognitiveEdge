@@ -43,9 +43,11 @@ async function registerUserController(req, res) {
 
     res.status(201).json({
         message: "User Registered Successfully",
-        userId: user._id,
-        username: user.username,
-        email: user.email,
+        user: {
+            userId: user._id,
+            username: user.username,
+            email: user.email,
+        }
 
     })
 

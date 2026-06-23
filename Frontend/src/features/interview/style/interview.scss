@@ -119,6 +119,28 @@ $muted: #838994;
             &:focus-visible { outline: 2px solid $accent-light; outline-offset: 2px; }
         }
     }
+    .dwnbtn{
+        width: 100%;
+        min-height: 52px;
+        padding: 10px 12px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        background: transparent;
+        color: #c5c9d0;
+        cursor: pointer;
+        text-align: left;
+        font: inherit;
+        font-size: 13px;
+        font-weight: 700;
+        transition: .2s ease;
+        span { color: #9299a4; font-size: 10px; }
+        &:hover { color: white; background: #181d24; }
+
+        
+    }
 }
 
 .report-content {
