@@ -6,34 +6,29 @@ An AI-powered MERN stack application that helps job seekers prepare for intervie
 
 ## Features
 
-* Secure User Authentication
+- Secure User Authentication
+  - User Registration and Login
+  - JWT-based Authentication
+  - Password Hashing with bcrypt
 
-  * User Registration and Login
-  * JWT-based Authentication
-  * Password Hashing with bcrypt
+- Resume Analysis
+  - Upload Resume Files
+  - Extract and Process Resume Content
 
-* Resume Analysis
+- AI-Powered Interview Report
+  - Resume vs Job Description Match Analysis
+  - Match Score Calculation
+  - Strengths and Weaknesses Identification
+  - Personalized Improvement Suggestions
+  - Interview Preparation Guidance
+  - Expected Technical and Behavioral Questions
 
-  * Upload Resume Files
-  * Extract and Process Resume Content
+- Input Validation
+  - Robust Request Validation using Zod
 
-* AI-Powered Interview Report
-
-  * Resume vs Job Description Match Analysis
-  * Match Score Calculation
-  * Strengths and Weaknesses Identification
-  * Personalized Improvement Suggestions
-  * Interview Preparation Guidance
-  * Expected Technical and Behavioral Questions
-
-* Input Validation
-
-  * Robust Request Validation using Zod
-
-* Responsive User Interface
-
-  * Clean and User-Friendly Experience
-  * Mobile and Desktop Compatible
+- Responsive User Interface
+  - Clean and User-Friendly Experience
+  - Mobile and Desktop Compatible
 
 ---
 
@@ -41,26 +36,30 @@ An AI-powered MERN stack application that helps job seekers prepare for intervie
 
 ### Frontend
 
-* React.js
-* React Router
-* Context API
-* Axios
-* CSS3
+- React.js
+- React Router
+- Context API
+- Axios
+- CSS3
 
 ### Backend
 
-* Node.js
-* Express.js
-* MongoDB
-* Mongoose
-* JWT Authentication
-* bcrypt
-* Zod
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT Authentication
+- bcrypt
+- Zod
 
 ### AI Integration
 
-* Google Gemini API
-* Gemini 3 Flash Preview Model
+- Google Gemini API
+- Gemini 3 Flash Preview Model
+
+### Resume PDF Generation
+
+- Puppeteer library to generate AI resume based on self description and job description
 
 ---
 
@@ -136,9 +135,9 @@ npm run dev
 1. User creates an account or logs in.
 2. User uploads their resume.
 3. User enters:
+   - Job Description
+   - Self Introduction / Profile Summary
 
-   * Job Description
-   * Self Introduction / Profile Summary
 4. The backend validates data using Zod.
 5. Resume and user inputs are sent to Gemini AI.
 6. Gemini generates a detailed interview report.
@@ -148,28 +147,26 @@ npm run dev
 
 ## Security
 
-* Passwords are hashed using bcrypt.
-* Authentication handled through JWT tokens.
-* Protected routes for authorized users.
-* Server-side validation using Zod.
+- Passwords are hashed using bcrypt.
+- Authentication handled through JWT tokens.
+- Protected routes for authorized users.
+- Server-side validation using Zod.
 
 ---
 
 ## Future Improvements
 
-* PDF Report Export
-* Interview Question Practice Mode
-* AI Mock Interviews
-* Resume Improvement Suggestions
-* Report History Dashboard
-* Role-Based Recommendations
+- PDF Report Export
+- Interview Question Practice Mode
+- AI Mock Interviews
+- Resume Improvement Suggestions
+- Report History Dashboard
+- Role-Based Recommendations
 
 ---
 
 ## Author
 
 Karan Rana
-
-
 
 MERN Stack Developer | DSA Enthusiast | AI Enthusiast
