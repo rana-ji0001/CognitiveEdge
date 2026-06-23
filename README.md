@@ -62,6 +62,12 @@ An AI-powered MERN stack application that helps job seekers prepare for intervie
 - Puppeteer library to generate AI resume based on self description and job description
 
 ---
+## Application Screenshots
+
+<p align="center">
+  <img src="./screenshots/homeDashboard.bmp" width="45%" />
+  <img src="./screenshots/interviewDashboard.bmp" width="45%" />
+</p>
 
 ## Project Structure
 
